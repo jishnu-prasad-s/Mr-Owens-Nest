@@ -1,0 +1,148 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: hsl(230 35% 7%);
+    min-height: 100vh;
+}
+
+
+
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*circle start */
+    background: linear-gradient(rgb(61, 69, 143), rgb(17, 19, 38));
+    clip-path: circle(20% at 10% 10%);
+    z-index: -100;
+    /*circle end */
+
+}
+
+
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.container .card {
+    position: relative;
+    width: 340px;
+    height: 330px;
+    margin: 20px;
+    background: rgba(9, 112, 214, 0.05);
+    box-shadow: 0 15px 35px rgba(255, 248, 248, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container .card .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.container .card:hover .content {
+    opacity: 1;
+    transform: translateY(-25px);
+
+}
+
+.container .card .content .imgBx {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border: 10px solid rgba(255, 248, 248, 0.25);
+    border-radius: 56% 44% 73% 27% / 45% 68% 32% 55%;
+    transition: border-radius 500ms ease-in-out;
+
+}
+
+.container .card .content .imgBx:hover {
+    border-radius: 79% 21% 29% 71% / 11% 74% 26% 89%;
+}
+
+.container .card .content .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container .card .content .contentBx h3 {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px 0 10px;
+    line-height: 1.1em;
+
+}
+
+.container .card .content .contentBx h3 span {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: initial;
+
+
+}
+
+.container .card .sci {
+    position: absolute;
+    bottom: 25px;
+    display: flex;
+}
+
+.container .card .sci li {
+    list-style: none;
+    margin: 0 10px;
+    transform: translateY(40px);
+    transition: 0.5s;
+    opacity: 0;
+    transition-delay: calc(0.1s * var(--i));
+
+
+}
+
+.container .card:hover .sci li {
+    transform: translateY(0px);
+    opacity: 1;
+
+}
+
+.container .card .sci li a {
+    color: whitesmoke;
+    font-size: 24px;
+}
