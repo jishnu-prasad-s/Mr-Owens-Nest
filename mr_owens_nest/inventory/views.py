@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import InventoryItems
 from .forms import AddItems
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def ItemListView(request):
     obj = InventoryItems.objects.all().first()
     qs = InventoryItems.objects.all()
@@ -14,6 +16,7 @@ def ItemListView(request):
     
     return render(request, 'inventory/list.html', context=context)
 
+@login_required
 def ItemDetailView(request, slug=None):
     obj = get_object_or_404(InventoryItems, slug=slug)
     
@@ -23,6 +26,7 @@ def ItemDetailView(request, slug=None):
     
     return render(request, 'inventory/detail.html', context=context)
 
+@login_required
 def ItemCreateView(request):
     form = AddItems(request.POST or None, request.FILES or None)
 
@@ -36,6 +40,7 @@ def ItemCreateView(request):
     
     return render(request, 'inventory/create.html', context=context)
 
+@login_required
 def ItemUpdateView(request, slug=None):
     obj = get_object_or_404(InventoryItems, slug=slug)
     form = AddItems(request.POST or None, instance=obj)
@@ -48,6 +53,7 @@ def ItemUpdateView(request, slug=None):
         return redirect(reverse('inventory:detail', kwargs={'slug': obj.slug}))
     return render(request, 'inventory/update.html', context)
 
+@login_required
 def ItemDeleteView(request, slug=None):
     try:
         obj = InventoryItems.objects.get(slug=slug)

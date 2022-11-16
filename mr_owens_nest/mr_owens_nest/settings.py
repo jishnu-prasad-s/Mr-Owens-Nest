@@ -15,7 +15,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -60,6 +60,10 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'mr_owens_nest.urls'
 
 AUTH_USER_MODEL = 'accounts.User'
+# swappable = 'AUTH_USER_MODEL'
+
+LOGIN_URL = '/auth/login'
+LOGIN_REDIRECT_URL = '/inventory/'
 
 TEMPLATES = [
     {
@@ -108,6 +112,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
 
 FILE_UPLOAD_HANDLERS = [
     'django.core.files.uploadhandler.MemoryFileUploadHandler',
