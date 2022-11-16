@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}{{ obj.name }}{% endblock title %}
+
+{% block body %}
+    {% if obj %}
+        <h1>{{ obj.name }}</h1>
+        <img src="/{{obj.thumbnail}}" alt={{ obj.name }} width=200 height=200/>
+        <ul>
+            <li>Item Code: {{ obj.item_code }} units </li>
+            <li>Stock: {{ obj.stock }} units </li>
+            <li>Last updated {{obj.date_updated|naturaltime }} </li>
+        </ul>
+        <a href="{% url 'inventory:update' obj.slug %}">Update {{ obj.name }}</a>
+        <a href="{% url 'inventory:delete' obj.slug %}">Delete {{obj.name}}</a>
+    {% endif %}
+{% endblock body %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Delete {{ obj.name }}{% endblock title %}
+
+{% block body %}
+    {% if obj %}
+        <h1 class='room'>Delete {{ obj.name }}</h1>
+        <form method='POST'>
+            {% csrf_token %}
+            <p>Are you sure you want to delete {{ obj.name }}?</p>
+            <small>{{obj.item_code}}</small>
+            {{ form.as_p }}
+            <br>
+            <button>Yes, delete</button>
+        </form>
+    {% endif %}
+{% endblock body %}

@@ -22,5 +22,6 @@ from .views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
-    path('admin/docs/', include('django.contrib.admindocs.urls'))
+    path('inventory/', include('inventory.urls')),
+    path('admin/docs/', include('django.contrib.admindocs.urls')),
 ]
