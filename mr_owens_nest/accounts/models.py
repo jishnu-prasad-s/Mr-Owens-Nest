@@ -14,8 +14,8 @@ class User(AbstractUser):
     date_joined = models.DateTimeField(('date joined'), auto_now_add=True)
     is_active = models.BooleanField(('active'), default=True)
     
-    # USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
     
     class Meta:
         verbose_name = 'User'
