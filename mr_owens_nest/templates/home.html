@@ -1,10 +1,112 @@
-{% extends 'base.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr Owen's Nest</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="assets/images/favicon folder.ico/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style/navi.css">
+    <link rel="stylesheet" href="style/type.css">
+    <link rel="stylesheet" href="style/btn.css">
+    <link rel="stylesheet" href="style/icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">    
+    <script src="script/navi.js" defer></script>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
-{% static 'index.css' %}
-{% block title %}Mr Owens Nest{% endblock title %}
+    <style>
+        body {
+  background-image: url('bg.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+    </style>
+</head>
+<body>
 
-{% block body %}
-    <h1>{{ heading }}</h1>
-{% endblock body %}
+    <header class="primary-header flex">
+        <div>
+          <img src="assets/logo.png" alt="Mr Owen's Nest" class="logo">
+        </div>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only" aria-expanded="false">Menu</span></button>
+        <nav>
+            <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
+                <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="home.html"><span aria-hidden="true">00</span>Home</a>
+                <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="cards.html"><span aria-hidden="true">01</span>Inventory</a>
+                <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="members.html"><span aria-hidden="true">02</span>Members</a>
+                <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="about.html"><span aria-hidden="true">03</span>Other</a>
+            </ul>
+        </nav>
+      </header>
+      
+      <main id="main" class="grid-container grid-container--home">
+        <div>
+          <h1 class="text-accent fs-500 ff-sans-cond letter-spacing-1" style="color: #d91414">WELCOME TO
+          <span class="d-block fs-800 ff-serif text-white tw">Mr Owen's Nest</span></h1>
+          <div class="countdown"> <div style="color: #d91414">Fright <i>everywhere</i> </div></div>
+          <a href="#" class="gBtn"><span>Know More</span><i></i></a>
+          <a href="#" class="gBtn" style="margin-left:15px;"><span>Inventory</span><i></i></a>
+        </div>
+        <div style="opacity: 0">
+        </div>
+      </main>
 
+   <footer class="wrapper" >
+        <div class="icon facebook">
+           <div class="tooltip">
+              Facebook
+           </div>
+           <a href="https://www.facebook.com/warpdpsmr"><span><i class="fab fa-facebook-f" style="color: black;" href=""></i></span></a>
+        </div>
+        <div class="icon twitter">
+           <div class="tooltip">
+              Twitter
+           </div>
+           <a href="https://twitter.com/WarP_dpsmr"><span><i class="fab fa-twitter" style="color: black;"></i></span></a>
+        </div>
+        <div class="icon instagram">
+           <div class="tooltip">
+              Instagram
+           </div>
+           <a href="https://www.instagram.com/warp_dpsmrd/"><span><i class="fab fa-instagram" style="color: black;"></i></span></a>
+        </div>
+        <div class="icon github">
+           <div class="tooltip">
+              Discord
+           </div>
+           <a href="https://discord.gg/NKWp2JXhzc"><span><i class="fab fa-discord" style="color: black;"></i></span></a>
+        </div>
+        <div class="icon youtube">
+           <div class="tooltip">
+              YouTube
+           </div>
+           <a href="https://www.youtube.com/channel/UCzyuFgg84AkrKqNjkQ_H59g"><span><i class="fab fa-youtube" style="color: black;"></i></span></a>
+        </div>
+      </footer>
+      
+</body>
+</html>
