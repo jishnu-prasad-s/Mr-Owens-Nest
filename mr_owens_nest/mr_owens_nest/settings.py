@@ -26,9 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'trownsmen.onrender.com', 
+    'localhost', 
+    '127.0.0.1', 
+    '*.onrender.com'
+]
 
 
 # Application definition
@@ -97,12 +102,12 @@ WSGI_APPLICATION = 'mr_owens_nest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'jishnupsamal/mr_owens_nest',
-        'USER': 'jishnupsamal',
-        'PASSWORD': 'v2_3vdMf_YW8hPDmbxRX4hQN3kpkdHPG',
-        'HOST': 'db.bit.io',
-        'PORT': '5432',
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
@@ -151,12 +156,11 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = 'staticfiles/'
 
-AWS_ACCESS_KEY_ID = 'AA79AEEB0C83C0FB538B'
-AWS_SECRET_ACCESS_KEY = 'IFuCh5nkWe6mdZ7FK2SVN418j9cczfLkZhn6GBZo'
-AWS_STORAGE_BUCKET_NAME = 'mr-owens-nest'
-AWS_S3_ENDPOINT_URL = 'https://s3.filebase.com'
-
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.filebase.com' % AWS_STORAGE_BUCKET_NAME
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_ENDPOINT_URL = os.getenv('AWS_S3_ENDPOINT_URL')
+AWS_S3_CUSTOM_DOMAIN = os.getenv('AWS_S3_CUSTOM_DOMAIN')
 
 AWS_LOCATION = 'static'
 
@@ -166,6 +170,8 @@ STATICFILES_DIRS = [
 
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

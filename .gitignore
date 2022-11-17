@@ -4,6 +4,7 @@ Scripts
 pyvenv.cfg
 __pycache__
 migrations
-.env
 superuser.txt
 .vscode
+db.sqlite3
+.env
