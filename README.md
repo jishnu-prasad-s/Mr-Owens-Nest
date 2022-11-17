@@ -1,3 +1,3 @@
 # Mr-Owens-Nest
 
-## [Video](https://www.youtube.com/embed/lMqbjexyqQA)
+## [Video](https://youtu.be/lMqbjexyqQA)
