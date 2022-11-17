@@ -1,0 +1,15 @@
+.content h3 a, 
+.content h3 a:visited{
+    color: red;
+    padding-right: 0.5rem;
+}
+
+.content img {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 5rem;
+}
+
+.nav a{
+    color: red;
+}

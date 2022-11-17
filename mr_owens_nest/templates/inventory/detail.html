@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <style>
+        body {
+            margin: 0.5rem 0 0 1rem;
+        }
 
+        .content{
+            padding: 1rem;
+        }
+
+        a{
+            colour: red;
+        }
+    </style>
+{% endblock head %}
 {% block title %}{{ obj.name }}{% endblock title %}
 
 {% block body %}

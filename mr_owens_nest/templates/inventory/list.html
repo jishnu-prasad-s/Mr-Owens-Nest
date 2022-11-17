@@ -2,6 +2,7 @@
 {% load static %}
 {% block head %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
     <style>
         body {
             margin: 0.5rem 0 0 1rem;
@@ -10,12 +11,15 @@
         .content{
             padding: 1rem;
         }
+
+        a{
+            colour: red;
+        }
     </style>
 {% endblock head %}
 {% block title %}Inventory{% endblock title %}
 
 {% block body %}
-    {% include 'nav.html' %}
     <h1>Inventory</h1>
     {% for obj in qs %}
         <p class='content'>
