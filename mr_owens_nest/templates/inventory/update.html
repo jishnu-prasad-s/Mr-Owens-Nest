@@ -1,13 +1,41 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <style>
+        body {
+            margin: 0.5rem 0 0 1rem;
+        }
+
+        .content{
+            padding: 1rem;
+        }
+
+        a, a:link, a:visited{
+            colour: red;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .text-container {
+            padding-left: 3rem;
+        }
+    </style>
+{% endblock head %}
 
 {% block title %}Update {{obj.name}} {% endblock title %}
 
 {% block body %}
     <h1>Update {{obj.name}}</h1>
-    <form method='POST' enctype='multipart/form-data'>
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <input type='submit' value="Update"/>
-    </form>
+    <div class='text-container'>
+        <form method='POST' enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ form.as_p }}
+    
+            <input type='submit'/>
+        </form>
+        </div>
 {% endblock body %}

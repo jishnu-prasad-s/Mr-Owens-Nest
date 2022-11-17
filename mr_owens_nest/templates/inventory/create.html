@@ -1,13 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="{% static 'index.css' %}">
+<style>
+    body {
+        margin: 0.5rem 0 0 1rem;
+    }
+
+    .content{
+        padding: 1rem;
+    }
+
+    a, a:link, a:visited{
+        colour: red;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    .text-container {
+        padding-left: 3rem;
+        margin-top: -5rem;
+    }
+</style>
+{% endblock head %}
 
 {% block title %}Add Item {% endblock title %}
 
 {% block body %}
     <h1>Add Item</h1>
+    <div class='text-container'>
     <form method='POST' enctype='multipart/form-data'>
         {% csrf_token %}
         {{ form.as_p }}
 
         <input type='submit'/>
     </form>
+    </div>
 {% endblock body %}

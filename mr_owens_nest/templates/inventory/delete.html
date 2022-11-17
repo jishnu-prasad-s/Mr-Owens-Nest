@@ -1,11 +1,36 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <style>
+        body {
+            margin: 0.5rem 0 0 1rem;
+        }
 
+        .content{
+            padding: 1rem;
+        }
+
+        a, a:link, a:visited{
+            colour: red;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .text-container {
+            padding-left: 3rem;
+        }
+    </style>
+{% endblock head %}
 {% block title %}Delete {{ obj.name }}{% endblock title %}
 
 {% block body %}
     {% if obj %}
         <h1 class='room'>Delete {{ obj.name }}</h1>
+        <div class='text-container'>
         <form method='POST'>
             {% csrf_token %}
             <p>Are you sure you want to delete {{ obj.name }}?</p>
@@ -14,5 +39,6 @@
             <br>
             <button>Yes, delete</button>
         </form>
+    </div>
     {% endif %}
 {% endblock body %}

@@ -10,8 +10,9 @@
 {% block body %}
     <h1>Inventory</h1>
     <br/>
+    <a href="{% url 'inventory:create' %}" style="margin-left: 4rem; color: red;">Add Items</a>
+    <br>
     <div class="container">
-            
         {% for obj in qs %}
             
         <div class="card-1 card-div">
