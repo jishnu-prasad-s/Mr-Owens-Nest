@@ -1,0 +1,71 @@
+.gBtn {
+    position: relative;
+    background: #fff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+}
+
+.gBtn:hover {
+    background: rgb(61, 69, 143);
+    color: rgb(61, 69, 143);
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px rgb(61, 69, 143);
+}
+
+.gBtn:before {
+    position: absolute;
+    content: '';
+    inset: 2px;
+    background: hsl(230 35% 7%)
+}
+
+.gBtn span {
+    position: relative;
+    z-index: 1;
+}
+
+.gBtn i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.gBtn i::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10px;
+    height: 4px;
+    background: hsl(230 35% 7%);
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.gBtn:hover i::before {
+    width: 20px;
+    left: 20%;
+}
+
+.gBtn i::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 10px;
+    height: 4px;
+    background: hsl(230 35% 7%);
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.gBtn:hover i::after {
+    width: 20px;
+    left: 80%;
+}
