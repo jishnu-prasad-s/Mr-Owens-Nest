@@ -13,8 +13,16 @@
             padding: 1rem;
         }
 
-        a{
+        a, a:link, a:visited{
             colour: red;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .text-container {
+            padding-left: 3rem;
         }
     </style>
 {% endblock head %}
@@ -23,13 +31,22 @@
 {% block body %}
     {% if obj %}
         <h1>{{ obj.name }}</h1>
+        
+        <div class='container'>
+        {% comment %} <div class='img-div'> {% endcomment %}
         <img src="/{{obj.thumbnail}}" alt={{ obj.name }} width=200 height=200/>
+        {% comment %} </div> {% endcomment %}
+        <div clas='text-container' style="margin-left: 2rem;">
         <ul>
-            <li>Item Code: {{ obj.item_code }} units </li>
+            <li>Item Code: {{ obj.item_code }}</li>
             <li>Stock: {{ obj.stock }} units </li>
             <li>Last updated {{obj.date_updated|naturaltime }} </li>
         </ul>
-        <a href="{% url 'inventory:update' obj.slug %}">Update {{ obj.name }}</a>
-        <a href="{% url 'inventory:delete' obj.slug %}">Delete {{obj.name}}</a>
+        <br>
+        <a href="{% url 'inventory:update' obj.slug %}" style="color: red;">Update {{ obj.name }}</a>
+        <br>
+        <a href="{% url 'inventory:delete' obj.slug %}" style="color: red;">Delete {{obj.name}}</a>
+        </div>
+        </div>
     {% endif %}
 {% endblock body %}

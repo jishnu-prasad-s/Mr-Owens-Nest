@@ -3,29 +3,27 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <link rel="stylesheet" href="{% static 'index.css' %}">
-    <style>
-        body {
-            margin: 0.5rem 0 0 1rem;
-        }
-
-        .content{
-            padding: 1rem;
-        }
-
-        a{
-            colour: red;
-        }
-    </style>
+    
 {% endblock head %}
 {% block title %}Inventory{% endblock title %}
 
 {% block body %}
     <h1>Inventory</h1>
-    {% for obj in qs %}
-        <p class='content'>
-            <img src="/{{ obj.thumbnail }}" width=100 height=100/>
-            <br/>
-            <h3><a href="{% url 'inventory:detail' obj.slug %}">{{ obj.name }}</a></h3>
-        </p>
-    {% endfor %}
+    <br/>
+    <div class="container">
+            
+        {% for obj in qs %}
+            
+        <div class="card-1 card-div">
+            <div class="gow-img-div img-div">
+                <img src="/{{ obj.thumbnail }}" width=100 height=100 alt="{{obj.name}}">
+            </div>
+            <div class="text-container">
+                <h2 class="item-name"><a href="{% url 'inventory:detail' obj.slug %}">{{ obj.name }}</a></h2>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div> 
+
 {% endblock body %}
