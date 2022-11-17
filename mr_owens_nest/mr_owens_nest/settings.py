@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    # 'storages',
     'accounts',
+    'storages',
     'inventory',
 ]
 
@@ -62,8 +62,8 @@ ROOT_URLCONF = 'mr_owens_nest.urls'
 AUTH_USER_MODEL = 'accounts.User'
 # swappable = 'AUTH_USER_MODEL'
 
-LOGIN_URL = '/auth/login'
-LOGIN_REDIRECT_URL = '/inventory/'
+LOGIN_URL = '/xcdsv78/auth/login'
+LOGIN_REDIRECT_URL = '/scdsv78/inventory/'
 
 TEMPLATES = [
     {
@@ -87,13 +87,24 @@ WSGI_APPLICATION = 'mr_owens_nest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'jishnupsamal/mr_owens_nest',
+        'USER': 'jishnupsamal',
+        'PASSWORD': 'v2_3vdMf_YW8hPDmbxRX4hQN3kpkdHPG',
+        'HOST': 'db.bit.io',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -136,9 +147,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_ROOT = 'staticfiles/'
+
+AWS_ACCESS_KEY_ID = 'AA79AEEB0C83C0FB538B'
+AWS_SECRET_ACCESS_KEY = 'IFuCh5nkWe6mdZ7FK2SVN418j9cczfLkZhn6GBZo'
+AWS_STORAGE_BUCKET_NAME = 'mr-owens-nest'
+AWS_S3_ENDPOINT_URL = 'https://s3.filebase.com'
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.filebase.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_LOCATION = 'static'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'static')
+]
+
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
