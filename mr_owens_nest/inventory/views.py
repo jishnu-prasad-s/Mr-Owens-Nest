@@ -43,7 +43,7 @@ def ItemCreateView(request):
 @login_required
 def ItemUpdateView(request, slug=None):
     obj = get_object_or_404(InventoryItems, slug=slug)
-    form = AddItems(request.POST or None, instance=obj)
+    form = AddItems(request.POST or None, request.FILES or None, instance=obj)
     context = {
         "form": form,
         "obj": obj,

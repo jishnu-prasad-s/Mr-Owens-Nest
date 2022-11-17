@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import (
     home,
+    fake
 )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),
-    path('inventory/', include('inventory.urls')),
-    path('auth/', include('accounts.urls', namespace='auth')),
+    path('xcdsv78/', home, name='home'),
+    path('', fake, name='fake'),
+    path('xcdsv78/inventory/', include('inventory.urls')),
+    path('xcdsv78/auth/', include('accounts.urls', namespace='auth')),
     path('admin/docs/', include('django.contrib.admindocs.urls')),
 ]

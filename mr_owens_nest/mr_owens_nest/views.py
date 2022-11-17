@@ -6,3 +6,10 @@ def home(request):
         'heading': heading,
     }
     return render(request, 'home.html', context=context)
+
+def fake(request):
+    heading = 'Trownsmen'
+    context = {
+        'heading': heading,
+    }
+    return render(request, 'fake.html', context=context)
