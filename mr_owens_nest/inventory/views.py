@@ -29,7 +29,8 @@ def ItemDetailView(request, slug=None):
 @login_required
 def ItemCreateView(request):
     form = AddItems(request.POST or None, request.FILES or None)
-
+    # image = request.files["thumbnail"]
+    
     if form.is_valid():
         form.save()
         return redirect(reverse('inventory:list'))

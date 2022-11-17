@@ -12,7 +12,7 @@ class InventoryItems(Model):
     item_code = CharField('Item Code', max_length=20, unique=True)
     name = CharField("Name of Item", max_length=300)
     slug = SlugField('Item Slug', blank=True, null=True)
-    thumbnail = ImageField("Thumbnail Image", upload_to='static/uploads/Inventory/', blank=True)
+    thumbnail = ImageField("Thumbnail Image", upload_to='uploads/Inventory/', blank=True)
     stock = IntegerField('Amount of the specified item')
     date_added = DateTimeField('Date Joined', auto_now_add=True)
     date_updated = DateTimeField('Last Updated', auto_now=True)
